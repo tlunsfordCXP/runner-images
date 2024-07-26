@@ -355,6 +355,10 @@ Function GenerateResourcesAndImage {
         Write-Debug "Service principal app id: $ServicePrincipalAppId."
         Write-Debug "Tenant id: $TenantId."
 
+        # TODO: clean this up / parameterize it:
+        $LatestImageVersion = $(az vm image list -l $AzureLocation --all --offer ubuntu-server-jammy -p Canonical --architecture x64 --sku 22_04-lts --query "[?starts_with(urn,'Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04')].version" --output tsv | sort -u | tail -n 1)
+        Write-Debug "Image version: $LatestImageVersion."
+
         & $PackerBinary build -on-error="$($OnError)" `
             -var "client_id=$($ServicePrincipalAppId)" `
             -var "client_secret=$($ServicePrincipalPassword)" `
@@ -365,6 +369,7 @@ Function GenerateResourcesAndImage {
             -var "managed_image_resource_group_name=$($ResourceGroupName)" `
             -var "install_password=$($InstallPassword)" `
             -var "allowed_inbound_ip_addresses=$($AllowedInboundIpAddresses)" `
+            -var "image_version=$($LatestImageVersion)" `
             -var "azure_tags=$($TagsJson)" `
             $TemplatePath
 
