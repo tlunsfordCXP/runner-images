@@ -245,13 +245,14 @@ Function GenerateResourcesAndImage {
             az login --output none
         }
         else {
-            Write-Verbose "AzureClientId was provided, will use service principal login."
+            Write-Verbose "AzureClientId was provided, will use service principal login. Username: $AzureClientId Tenant: $AzureTenantId"
             az login --service-principal --username $AzureClientId --password=$AzureClientSecret --tenant $AzureTenantId --output none
         }
-        az account set --subscription $SubscriptionId
         if ($LastExitCode -ne 0) {
             throw "Failed to login to Azure subscription '$SubscriptionId'."
         }
+
+        az account set --subscription $SubscriptionId
 
         # Check resource group
         $ResourceGroupExists = [System.Convert]::ToBoolean((az group exists --name $ResourceGroupName));
