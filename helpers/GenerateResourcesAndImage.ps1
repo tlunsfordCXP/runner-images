@@ -229,6 +229,7 @@ Function GenerateResourcesAndImage {
         "-var=location=$($AzureLocation)" `
         "-var=managed_image_name=$($ManagedImageName)" `
         "-var=managed_image_resource_group_name=$($ResourceGroupName)" `
+        "-var=build_resource_group_name=$($ResourceGroupName)" `
         "-var=install_password=$($InstallPassword)" `
         "-var=allowed_inbound_ip_addresses=$($AllowedInboundIpAddresses)" `
         "-var=azure_tags=$($TagsJson)" `
@@ -368,6 +369,7 @@ Function GenerateResourcesAndImage {
             -var "location=$($AzureLocation)" `
             -var "managed_image_name=$($ManagedImageName)" `
             -var "managed_image_resource_group_name=$($ResourceGroupName)" `
+            -var "build_resource_group_name=$($ResourceGroupName)" `
             -var "install_password=$($InstallPassword)" `
             -var "allowed_inbound_ip_addresses=$($AllowedInboundIpAddresses)" `
             -var "image_version=$($LatestImageVersion)" `
