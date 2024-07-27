@@ -360,7 +360,7 @@ Function GenerateResourcesAndImage {
         Write-Verbose "Image version: $LatestImageVersion."
 
         Write-Host "Running packer build for template path $TemplatePath..."
-        & $PackerBinary build -debug -on-error="$($OnError)" `
+        & $PackerBinary build -on-error="$($OnError)" `
             -var "client_id=$($ServicePrincipalAppId)" `
             -var "client_secret=$($ServicePrincipalPassword)" `
             -var "subscription_id=$($SubscriptionId)" `
