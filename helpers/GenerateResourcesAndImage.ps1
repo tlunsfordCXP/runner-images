@@ -213,7 +213,7 @@ Function GenerateResourcesAndImage {
 
     $InstallPassword = $env:UserName + [System.GUID]::NewGuid().ToString().ToUpper()
 
-    Write-Host "Downloading packer plugins..."
+    Write-Host "Downloading packer plugins. TemplatePath: $TemplatePath..."
     & $PackerBinary init $TemplatePath
 
     if ($LastExitCode -ne 0) {
