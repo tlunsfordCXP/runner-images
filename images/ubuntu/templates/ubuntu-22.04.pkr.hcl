@@ -317,7 +317,7 @@ build {
       "${path.root}/../scripts/build/install-bazel.sh",
       "${path.root}/../scripts/build/install-oras-cli.sh",
       "${path.root}/../scripts/build/install-php.sh",
-      "${path.root}/../scripts/build/install-postgresql.sh",
+#      "${path.root}/../scripts/build/install-postgresql.sh",
       "${path.root}/../scripts/build/install-pulumi.sh",
       "${path.root}/../scripts/build/install-ruby.sh",
       "${path.root}/../scripts/build/install-rlang.sh",
