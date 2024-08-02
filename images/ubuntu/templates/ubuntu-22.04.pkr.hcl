@@ -293,7 +293,7 @@ build {
       "${path.root}/../scripts/build/install-firefox.sh",
       "${path.root}/../scripts/build/install-microsoft-edge.sh",
       "${path.root}/../scripts/build/install-gcc-compilers.sh",
-      "${path.root}/../scripts/build/install-gfortran.sh",
+#      "${path.root}/../scripts/build/install-gfortran.sh",
       "${path.root}/../scripts/build/install-git.sh",
       "${path.root}/../scripts/build/install-git-lfs.sh",
       "${path.root}/../scripts/build/install-github-cli.sh",
